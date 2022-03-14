@@ -1,8 +1,8 @@
-import { StatusBar, StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 
 import React from "react";
 
-const ActiveTabScreen = (props) => {
+const HomeScreen = (props) => {
   return (
     <View style={styles.container}>
       <TextInput style={styles.textInput} />
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ActiveTabScreen;
+export default HomeScreen;
