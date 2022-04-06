@@ -1,7 +1,7 @@
+import React, { Children, cloneElement, isValidElement } from "react";
 import { StyleSheet, View } from "react-native";
 
 import LineSeparator from "./LineSeparator";
-import React from "react";
 
 const Row = ({
   children,
@@ -12,10 +12,18 @@ const Row = ({
 }) => {
   if (!visible) return null;
 
+  const LeftComponent = (props) => children[0];
+  const RightComponent = (props) => children[1];
+
   return (
     <>
       <View style={[styles.row, style]} {...otherProps}>
-        {children}
+        <View style={{ paddingEnd: 10, flex: 2 }}>
+          <LeftComponent />
+        </View>
+        <View style={{ alignItems: "flex-end", flex: 1 }}>
+          <RightComponent />
+        </View>
       </View>
       {withBorder && <LineSeparator />}
     </>

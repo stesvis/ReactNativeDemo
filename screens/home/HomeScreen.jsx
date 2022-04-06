@@ -12,45 +12,31 @@ const HomeScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text bold>Actual result:</Text>
+      <Text bold>Long text on the left:</Text>
       <Row style={styles.row}>
-        <Text faIcon="suitcase" iconColor="red" style={{ color: "red" }}>
-          This is some very long text for demo
+        <Text
+          faIcon="suitcase"
+          iconColor="red"
+          numberOfLines={1}
+          style={{ color: "red" }}>
+          This is some very long text for demo purposes
         </Text>
         <Text bold style={{ color: "green", textAlign: "right" }}>
           Apr 15, 2022
         </Text>
       </Row>
 
-      <Text bold>Expected result:</Text>
+      <Text bold>Long text on the right:</Text>
       <Row style={styles.row}>
-        <Text faIcon="suitcase" iconColor="red" style={{ color: "red" }}>
-          This is some very long tex...
-        </Text>
-        <Text bold style={{ color: "green", textAlign: "right" }}>
+        <Text bold style={{ color: "green" }}>
           Apr 15, 2022
         </Text>
-      </Row>
-
-      <Text bold>Solution :</Text>
-      <Row style={styles.row}>
-        <View style={{ flex: 4.3 }}>
-          <Text
-            faIcon="suitcase"
-            numberOfLines={1}
-            iconColor="red"
-            style={{ color: "red", width: "85%" }}>
-            This is some very long text for demo
-          </Text>
-        </View>
-        <View style={{ flex: 1.7 }}>
-          <Text
-            bold
-            numberOfLines={1}
-            style={{ color: "green", textAlign: "right" }}>
-            Apr 15, 2022
-          </Text>
-        </View>
+        <Text
+          iconColor="red"
+          numberOfLines={1}
+          style={{ color: "red", textAlign: "right" }}>
+          This is some very long text for demo purposes
+        </Text>
       </Row>
     </View>
   );
@@ -62,7 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 0,
+    paddingHorizontal: 40,
     paddingVertical: 10,
   },
   row: {
