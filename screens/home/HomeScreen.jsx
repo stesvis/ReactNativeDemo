@@ -3,8 +3,13 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import Row from "../../components/Row";
 import Text from "../../components/Text";
+import { FlatList } from "react-native";
 
 const HomeScreen = (props) => {
+  const ListItem = ({ item, index }) => (
+    <Text style={{ paddingVertical: 10 }}>{index + 1}</Text>
+  );
+
   return (
     <View style={styles.container}>
       <Text bold>Actual result:</Text>
@@ -26,6 +31,38 @@ const HomeScreen = (props) => {
           Apr 15, 2022
         </Text>
       </Row>
+
+
+      <Text bold>Solution :</Text>
+      <Row style={styles.row}>
+        <View style={{ flex: 4.3 }}>
+          <Text faIcon="suitcase" numberOfLines={1} iconColor="red" style={{ color: "red", width: '85%' }}>
+            This is some very long text for demo
+          </Text>
+        </View>
+        <View style={{ flex: 1.7 }}>
+          <Text bold numberOfLines={1} style={{ color: "green" }}>
+            Apr 15, 2022
+          </Text>
+        </View>
+      </Row>
+
+      <FlatList
+        data={[
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        ]}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={ListItem}
+        style={{ width: "100%" }}
+        contentContainerStyle={{
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      />
     </View>
   );
 };
@@ -49,6 +86,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     overflow: "hidden",
     width: "100%",
+    alignItems: 'center'
   },
 });
 
