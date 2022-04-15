@@ -38,6 +38,8 @@ const AppDateTimePicker = ({
   const isAndroid = Platform.OS === "android";
 
   useEffect(() => {
+    console.log("----------");
+    console.log(`date ${Platform.OS}`, date);
     setSelectedDateTime(date);
   }, [date]);
 

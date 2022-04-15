@@ -1,11 +1,12 @@
 import * as Yup from "yup";
 
 import { Form, FormDateTimePicker, SubmitButton } from "../components/forms";
-import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { Screen, Text } from "../components/ui";
+import { ScrollView, StyleSheet, View } from "react-native";
 
-import React from "react";
-import { Screen } from "../components/ui";
 import SpaceSeparator from "../components/separators/SpaceSeparator";
+import dayjs from "dayjs";
 
 const validationSchema = Yup.object().shape({
   timeTest: Yup.date()
@@ -15,8 +16,11 @@ const validationSchema = Yup.object().shape({
 });
 
 const TestScreen = (props) => {
+  const [formattedTime, setFormattedTime] = useState();
+
   const handleSubmit = async (values) => {
     console.log(values);
+    setFormattedTime(dayjs(values.timeTest).format("HH:mm"));
   };
 
   return (
@@ -38,6 +42,9 @@ const TestScreen = (props) => {
           />
           <SubmitButton title="Submit" />
         </Form>
+
+        <SpaceSeparator height={100} />
+        <Text>Formatted time: {formattedTime}</Text>
       </ScrollView>
     </Screen>
   );
