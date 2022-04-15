@@ -28,7 +28,7 @@ const TestScreen = (props) => {
       <ScrollView style={{ flex: 1 }}>
         <Form
           initialValues={{
-            timeTest: new Date("2022-04-16T22:05:00"),
+            timeTest: "2022-04-16T22:05:00",
           }}
           onSubmit={(values) => handleSubmit(values)}
           validationSchema={validationSchema}>
