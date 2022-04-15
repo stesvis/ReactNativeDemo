@@ -16,10 +16,12 @@ const validationSchema = Yup.object().shape({
 });
 
 const TestScreen = (props) => {
+  const [formattedDate, setFormattedDate] = useState();
   const [formattedTime, setFormattedTime] = useState();
 
   const handleSubmit = async (values) => {
     console.log(values);
+    setFormattedDate(dayjs(values.timeTest).format("MMM DD, YYYY"));
     setFormattedTime(dayjs(values.timeTest).format("HH:mm"));
   };
 
@@ -28,13 +30,22 @@ const TestScreen = (props) => {
       <ScrollView style={{ flex: 1 }}>
         <Form
           initialValues={{
-            timeTest: "2022-04-16T22:05:00",
+            dateTest: "2022-04-16T22:05:00",
+            timeTest: "2022-04-16T22:05:00", // TODO: would be nice to just pass a time string like "22:05"
           }}
           onSubmit={(values) => handleSubmit(values)}
           validationSchema={validationSchema}>
           <FormDateTimePicker
             horizontal
-            label="Pick a time"
+            label="DATE picker"
+            mode="date"
+            name="dateTest"
+            required
+            width={200}
+          />
+          <FormDateTimePicker
+            horizontal
+            label="TIME picker"
             mode="time"
             name="timeTest"
             required
@@ -44,6 +55,7 @@ const TestScreen = (props) => {
         </Form>
 
         <SpaceSeparator height={100} />
+        <Text>Formatted date: {formattedDate}</Text>
         <Text>Formatted time: {formattedTime}</Text>
       </ScrollView>
     </Screen>
