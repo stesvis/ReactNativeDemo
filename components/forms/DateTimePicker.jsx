@@ -129,9 +129,10 @@ const AppDateTimePicker = ({
           mode={mode}
           onChange={onChange}
           testID="dateTimePicker"
-          value={currentDateTime ?? now}
-        />
-      )}
+          value={new Date()}
+          />
+          )}
+          {console.log('now: ', now)}
 
       {/* iOS DateTimePicker */}
       {!isAndroid && (
