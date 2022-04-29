@@ -157,9 +157,6 @@ const AutoComplete = ({
             styles.iosPopup,
             pageY < 290 ? styles.showBelow : styles.showAbove,
           ]}>
-          <View style={[themeStyle.autoCompleteHeader, styles.iosPupupHeader]}>
-            <LinkButton onPress={handleEsc} title="Close" uppercase={false} />
-          </View>
           {scrollView}
         </View>
       )}
@@ -173,14 +170,6 @@ const styles = StyleSheet.create({
   container: {},
   iosPopup: {
     zIndex: 3,
-  },
-  iosPupupHeader: {
-    alignItems: "center",
-    height: 30,
-    justifyContent: "center",
-    paddingVertical: 5,
-    width: "100%",
-    zIndex: 4,
   },
   popup: {
     alignSelf: "center",
