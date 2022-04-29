@@ -97,6 +97,7 @@ const AutoComplete = ({
   };
 
   const handleSelect = (item) => {
+    console.log("selected item", item);
     setLastSelectedItem(item);
     setShowList(false);
     setMatchLabel(item[itemLabelProperty]);

@@ -265,6 +265,7 @@ const TestScreen = (props) => {
         <Text>Some text</Text>
         <Text>Some text</Text>
         <AutoComplete
+          dynamic={false}
           items={users}
           itemLabelProperty="name"
           itemValueProperty="id"
@@ -275,7 +276,6 @@ const TestScreen = (props) => {
 
         {/* ******************** UNCOMMENT THESE AND SEE THE DIFFERENCE ******************** */}
 
-        {/* <Text>Some text</Text>
         <Text>Some text</Text>
         <Text>Some text</Text>
         <Text>Some text</Text>
@@ -287,7 +287,8 @@ const TestScreen = (props) => {
         <Text>Some text</Text>
         <Text>Some text</Text>
         <Text>Some text</Text>
-        <Text>Some text</Text> */}
+        <Text>Some text</Text>
+        <Text>Some text</Text>
       </ScrollView>
     </Screen>
   );

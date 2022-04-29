@@ -33,7 +33,10 @@ const MenuListItem = ({
 
   return (
     <PressableOpacity
-      onPress={() => onPress(item)}
+      onPress={() => {
+        alert("pressed");
+        onPress(item);
+      }}
       style={[
         styles.container,
         {
