@@ -14,9 +14,9 @@ const AutoComplete = ({
   itemLabelProperty,
   items,
   itemValueProperty,
-  onChangeText = () => {},
-  onFocus = () => {},
-  onSelectItem = () => {},
+  onChangeText = () => { },
+  onFocus = () => { },
+  onSelectItem = () => { },
   predictions,
   selectedItem,
   style,
@@ -138,12 +138,15 @@ const AutoComplete = ({
     <View style={[styles.container, style]}>
       <TextInput
         // onBlur={handleEsc}
-        onEndEditing={() => Platform.OS === "android" && handleEsc()}
+        // onEndEditing={() => Platform.OS === "android" && handleEsc()}
         // blurOnSubmit={false}
+        // onBlur={() => setShowList(false)}
         disabled={disabled}
         inputStyle={inputStyle}
         onChangeText={handleChangeText}
         onFocus={handleFocus}
+        showCloseButton={showList}
+        close={() => setShowList(false)}
         onPressIn={handlePressIn}
         value={matchLabel}
         {...otherProps}
@@ -151,7 +154,7 @@ const AutoComplete = ({
       {/* <SpaceSeparator
         height={matches?.length > 0 && pageY < 290 ? matches.length * 40 : 0}
       /> */}
-      {showList && iOS && (
+      {/* {showList && iOS && (
         <View
           style={[
             styles.popup,
@@ -162,7 +165,9 @@ const AutoComplete = ({
         </View>
       )}
 
-      {showList && !iOS && scrollView}
+      {showList && !iOS && scrollView} */}
+      {showList && scrollView}
+
     </View>
   );
 };

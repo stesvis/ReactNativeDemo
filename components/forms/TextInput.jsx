@@ -12,15 +12,17 @@ const AppTextInput = ({
   icon,
   inputStyle,
   name,
-  onBlur = () => {},
-  onChangeText = () => {},
-  onEndEditing = () => {},
-  onFocus = () => {},
-  onPressIn = () => {},
+  onBlur = () => { },
+  onChangeText = () => { },
+  onEndEditing = () => { },
+  onFocus = () => { },
+  onPressIn = () => { },
+  close = () => { },
   placeholder,
   style,
   value,
   visible = true,
+  showCloseButton = false,
   ...otherProps
 }) => {
   if (!visible) return null;
@@ -87,9 +89,12 @@ const AppTextInput = ({
         value={text}
         {...otherProps}></TextInput>
       <PressableOpacity
-        onPress={handleClear}
+        // onPress={handleClear}
+        onPress={()=>{
+          handleClear()
+          close()}}
         // visible={showClearButton} // TODO: need to solve this
-        visible={false}>
+        visible={showCloseButton}>
         <MaterialCommunityIcons
           name="close-circle"
           size={15}
