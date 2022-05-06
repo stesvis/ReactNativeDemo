@@ -111,7 +111,6 @@ const AutoComplete = ({
         themeStyle.autoComplete,
         !iOS && styles.popup,
         !iOS && (pageY < 290 ? styles.showBelow : styles.showAbove),
-        , { maxHeight: 250, }
       ]}
       keyboardShouldPersistTaps="handled"
       nestedScrollEnabled
