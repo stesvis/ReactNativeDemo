@@ -8,12 +8,15 @@ import { useCallback, useEffect, useState } from "react";
 
 import AppNavigationContainer from "./components/AppNavigationContainer";
 import DrawerNavigator from "./navigators/DrawerNavigator";
+import HomeTabNavigator from "./navigators/HomeTabNavigator";
 import MainNavigator from "./navigators/MainNavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import { RootSiblingParent } from "react-native-root-siblings";
 import TestScreen from "./screens/TestScreen";
 import { Text } from "./components/ui";
 import useTheme from "./hooks/useTheme";
+
+// import DrawerNavigator from "./navigators/DrawerNavigator";
 
 export default function App() {
   const [appTheme, setAppTheme] = useState();
