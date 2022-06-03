@@ -2,7 +2,7 @@ import { AppContext, GlobalHandlerContext } from "../context/appContext";
 import React, { useContext } from "react";
 import { StyleSheet, View } from "react-native";
 
-const AppNavigationContainer = (props) => {
+const AppNavigationContainer = ({ children: content, ...otherProps }) => {
   const {
     appTheme: { themeStyle },
   } = useContext(AppContext);
@@ -11,8 +11,8 @@ const AppNavigationContainer = (props) => {
 
   return (
     <GlobalHandlerContext.Provider value={{ handleApiError }}>
-      <View style={[themeStyle.screen, styles.container]}>
-        {props.children}
+      <View style={[themeStyle.screen, styles.container]} {...otherProps}>
+        {content}
       </View>
     </GlobalHandlerContext.Provider>
   );

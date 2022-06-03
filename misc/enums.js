@@ -10,4 +10,13 @@ const UIStylesEnum = {
   warning: "warning",
 };
 
-export { UIStylesEnum };
+const Routes = {
+  home: "home",
+  homeTab: "homeTab",
+  tab: "tab",
+  tabRoot: "tabRoot",
+  test: "test",
+  test2: "test2",
+};
+
+export { Routes, UIStylesEnum };

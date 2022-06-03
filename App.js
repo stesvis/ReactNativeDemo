@@ -1,12 +1,18 @@
+import "react-native-gesture-handler";
+
+import * as SplashScreen from "expo-splash-screen";
+
 import { AppContext, LoadingContext, ModalContext } from "./context/appContext";
 import { StyleSheet, View } from "react-native";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-import AppLoading from "expo-app-loading";
 import AppNavigationContainer from "./components/AppNavigationContainer";
+import DrawerNavigator from "./navigators/DrawerNavigator";
+import MainNavigator from "./navigators/MainNavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import { RootSiblingParent } from "react-native-root-siblings";
 import TestScreen from "./screens/TestScreen";
+import { Text } from "./components/ui";
 import useTheme from "./hooks/useTheme";
 
 export default function App() {
@@ -43,8 +49,20 @@ export default function App() {
     initAsync();
   }, []);
 
+  const onLayoutRootView = useCallback(async () => {
+    if (isReady) {
+      // This tells the splash screen to hide immediately! If we call this after
+      // `setAppIsReady`, then we may see a blank screen while the app is
+      // loading its initial state and rendering its first pixels. So instead,
+      // we hide the splash screen once we know the root view has already
+      // performed layout.
+      await SplashScreen.hideAsync();
+    }
+  }, [isReady]);
+
   const initAsync = async () => {
     try {
+      await SplashScreen.preventAutoHideAsync();
       await resetTheme();
     } catch (error) {
       console.warn(error);
@@ -113,19 +131,20 @@ export default function App() {
     setAppTheme(themeObject);
   };
 
-  if (!isReady) return <AppLoading />;
+  if (!isReady) return null;
 
   return (
     <AppContext.Provider value={{ appTheme, setAppTheme, resetTheme }}>
       <LoadingContext.Provider value={{ loading, setLoading }}>
         <ModalContext.Provider value={modalContextValue}>
-          {/* <RootSiblingParent>
+          <RootSiblingParent>
             <NavigationContainer>
-          <AppNavigationContainer> */}
-          <TestScreen />
-          {/* </AppNavigationContainer>
+              <AppNavigationContainer onLayout={onLayoutRootView}>
+                {/* <TestScreen /> */}
+                <DrawerNavigator />
+              </AppNavigationContainer>
             </NavigationContainer>
-          </RootSiblingParent> */}
+          </RootSiblingParent>
         </ModalContext.Provider>
       </LoadingContext.Provider>
     </AppContext.Provider>
