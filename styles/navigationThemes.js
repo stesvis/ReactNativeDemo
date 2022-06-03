@@ -72,7 +72,10 @@ const DarkTopTabNavigationOptions = ({ route }) => ({
     height: 3,
   },
   tabBarInactiveTintColor: colors.dark.topTabBarInactiveTintColor,
-  tabBarStyle: { backgroundColor: colors.dark.topTabBarBackgroundColor },
+  tabBarStyle: {
+    backgroundColor: colors.dark.topTabBarBackgroundColor,
+    // height: 0,
+  },
 });
 
 const LightTopTabNavigationOptions = ({ route }) => ({
@@ -83,7 +86,10 @@ const LightTopTabNavigationOptions = ({ route }) => ({
     height: 3,
   },
   tabBarInactiveTintColor: colors.light.topTabBarInactiveTintColor,
-  tabBarStyle: { backgroundColor: colors.light.topTabBarBackgroundColor },
+  tabBarStyle: {
+    backgroundColor: colors.light.topTabBarBackgroundColor,
+    // height: 0,
+  },
 });
 
 const DarkDrawerNavigationOptions = ({ route }) => ({
