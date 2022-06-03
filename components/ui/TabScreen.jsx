@@ -26,6 +26,7 @@ const TabScreen = ({ hideStatusBar = false, style, ...otherProps }) => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "yellow",
     flex: 1,
     // padding: 5,
     // paddingTop: StatusBar.currentHeight + 5,
