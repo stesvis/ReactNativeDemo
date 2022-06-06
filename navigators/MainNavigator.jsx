@@ -15,21 +15,22 @@ const MainNavigator = ({ route, ...otherProps }) => {
 
   return (
     // <AppNavigationContainer>
-    <Stack.Navigator
-      screenOptions={stackNavigationOptions}
-      initialRouteName={Routes.tab}>
-      <Stack.Screen
-        component={TabbedTestScreen}
-        name={Routes.tab}
-        options={{
-          ...stackNavigationOptions,
-          headerTitle: (props) => (
-            <TabHeaderTitle title="Tab Test" {...props} />
-          ),
-        }}
-      />
-    </Stack.Navigator>
+    // <Stack.Navigator
+    //   screenOptions={stackNavigationOptions}
+    //   initialRouteName={Routes.tab}>
+    //   <Stack.Screen
+    //     component={TabbedTestScreen}
+    //     name={Routes.tab}
+    //     options={{
+    //       ...stackNavigationOptions,
+    //       headerTitle: (props) => (
+    //         <TabHeaderTitle title="Tab Test" {...props} />
+    //       ),
+    //     }}
+    //   />
+    // </Stack.Navigator>
     // </AppNavigationContainer>
+    <TabbedTestScreen/>
   );
 };
 

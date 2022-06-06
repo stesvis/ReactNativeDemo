@@ -12,7 +12,7 @@ const TabScreen = ({ hideStatusBar = false, style, ...otherProps }) => {
   const android = Platform.OS === "android";
 
   return (
-    <SafeAreaView style={[themeStyle.screen, styles.container, style]}>
+    <View style={[themeStyle.screen, styles.container, style]}>
       <View style={styles.innerContainer}>
         {otherProps.children}
         <StatusBar
@@ -20,7 +20,7 @@ const TabScreen = ({ hideStatusBar = false, style, ...otherProps }) => {
           backgroundColor={palette.primaryDark}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
