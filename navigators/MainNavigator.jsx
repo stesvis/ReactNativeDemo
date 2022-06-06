@@ -14,23 +14,22 @@ const MainNavigator = ({ route, ...otherProps }) => {
   const { stackNavigationOptions } = useNavigationOptions();
 
   return (
-    // <AppNavigationContainer>
-    // <Stack.Navigator
-    //   screenOptions={stackNavigationOptions}
-    //   initialRouteName={Routes.tab}>
-    //   <Stack.Screen
-    //     component={TabbedTestScreen}
-    //     name={Routes.tab}
-    //     options={{
-    //       ...stackNavigationOptions,
-    //       headerTitle: (props) => (
-    //         <TabHeaderTitle title="Tab Test" {...props} />
-    //       ),
-    //     }}
-    //   />
-    // </Stack.Navigator>
-    // </AppNavigationContainer>
-    <TabbedTestScreen/>
+    <AppNavigationContainer>
+      <Stack.Navigator
+        screenOptions={stackNavigationOptions}
+        initialRouteName={Routes.tab}>
+        <Stack.Screen
+          component={TabbedTestScreen}
+          name={Routes.tab}
+          options={{
+            ...stackNavigationOptions,
+            headerTitle: (props) => (
+              <TabHeaderTitle title="Tab Test" {...props} />
+            ),
+          }}
+        />
+      </Stack.Navigator>
+    </AppNavigationContainer>
   );
 };
 
